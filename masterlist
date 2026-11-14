@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuroneko Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 25px 15px;
+      background: #e9dfe0;
+      color: #44363c;
+      font-family: 'Nunito', sans-serif;
+      background-image: radial-gradient(#cdbfc2 0.7px, transparent 0.7px);
+      background-size: 12px 12px;
+    }
+
+    .site {
+      max-width: 760px;
+      margin: auto;
+      background: #fffaf5;
+      border: 2px solid #493d42;
+      box-shadow: 7px 7px 0 #a58f96;
+    }
+
+    header {
+      background: #f4cbd0;
+      padding: 25px;
+      border-bottom: 2px solid #493d42;
+      text-align: center;
+    }
+
+    .pixel {
+      font-family: 'DotGothic16', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    h1 {
+      font-family: 'DotGothic16', sans-serif;
+      font-size: clamp(27px, 7vw, 43px);
+      margin: 18px 0 8px;
+    }
+
+    .intro { font-size: 13px; }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      padding: 15px;
+      border-bottom: 2px dashed #cdb9bd;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #493d42;
+      border: 1px solid #493d42;
+      padding: 7px 13px;
+      font-size: 12px;
+      font-weight: 800;
+      background: white;
+    }
+
+    nav a:hover {
+      background: #f4cbd0;
+    }
+
+    main { padding: 25px; }
+
+    .notice {
+      background: #f9edef;
+      border: 1px dashed #c28d9a;
+      padding: 15px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    h2 {
+      font-family: 'DotGothic16', sans-serif;
+      font-size: 19px;
+      margin-top: 30px;
+      border-bottom: 2px solid #493d42;
+      padding-bottom: 10px;
+    }
+
+    .work {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 15px 5px;
+      border-bottom: 1px dashed #cdb9bd;
+      font-size: 13px;
+    }
+
+    .work a {
+      color: #a65e73;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .tag {
+      background: #f4dce0;
+      padding: 4px 8px;
+      font-size: 10px;
+      white-space: nowrap;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      background: #f4cbd0;
+      border-top: 2px solid #493d42;
+      font-size: 11px;
+    }
+
+    @media(max-width: 450px) {
+      main { padding: 18px; }
+      .work { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="site">
+
+  <header>
+    <div class="pixel">✳ WELCOME TO MY LITTLE WORLD ✳</div>
+    <h1>kuroneko archive</h1>
+    <div class="intro">
+      a little corner for stories, memories & imagination.
+    </div>
+    <p> ฅ^•ﻌ•^ฅ </p>
+  </header>
+
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#masterlist">MASTERLIST</a>
+    <a href="#about">ABOUT</a>
+    <a href="#links">LINKS</a>
+  </nav>
+
+  <main>
+    <section id="home">
+      <div class="notice">
+        <b>✉ HELLO, INTERNET STRANGER!</b><br>
+        Welcome to my personal archive.
+        Take your time and explore my little collection
+        of fictional worlds.
+      </div>
+    </section>
+
+    <section id="masterlist">
+      <h2>♡ MASTERLIST</h2>
+
+      <div class="work">
+        <a href="#">01. your story title ↗</a>
+        <span class="tag">LONG AU</span>
+      </div>
+
+      <div class="work">
+        <a href="#">02. another universe ↗</a>
+        <span class="tag">ONESHOT</span>
+      </div>
+
+      <div class="work">
+        <a href="#">03. somewhere in june ↗</a>
+        <span class="tag">THREAD</span>
+      </div>
+
+      <div class="work">
+        <a href="#">04. almost, maybe ↗</a>
+        <span class="tag">SERIES</span>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>♡ ABOUT ME</h2>
+      <p class="intro">
+        Just another person collecting stories
+        and leaving little pieces of imagination
+        on the internet.
+      </p>
+    </section>
+
+    <section id="links">
+      <h2>♡ FIND ME ELSEWHERE</h2>
+      <p class="intro">
+        Twitter / Instagram / CuriousCat
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 KURONEKO ARCHIVE — made with ♡
+    <br>thanks for visiting!
+  </footer>
+
+</div>
+
+</body>
+</html>
