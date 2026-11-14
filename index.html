@@ -2,141 +2,440 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kuroneko Archive</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kuroneko archive.</title>
 
-    body {
-      margin: 0;
-      padding: 25px 15px;
-      background: #e9dfe0;
-      color: #44363c;
-      font-family: 'Nunito', sans-serif;
-      background-image: radial-gradient(#cdbfc2 0.7px, transparent 0.7px);
-      background-size: 12px 12px;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Mono:wght@400;500;600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-    .site {
-      max-width: 760px;
-      margin: auto;
-      background: #fffaf5;
-      border: 2px solid #493d42;
-      box-shadow: 7px 7px 0 #a58f96;
-    }
+<style>
+:root {
+  --black: #111114;
+  --panel: #19191e;
+  --panel2: #202027;
+  --silver: #aeb0ba;
+  --muted: #777985;
+  --pink: #f3b8cb;
+  --pink2: #d88da8;
+  --white: #f5f2f4;
+  --line: #393941;
+}
 
-    header {
-      background: #f4cbd0;
-      padding: 25px;
-      border-bottom: 2px solid #493d42;
-      text-align: center;
-    }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
-    .pixel {
-      font-family: 'DotGothic16', sans-serif;
-      font-size: 12px;
-      letter-spacing: 3px;
-    }
+body {
+  margin: 0;
+  padding: 25px 13px;
+  color: var(--white);
+  background-color: var(--black);
+  background-image: radial-gradient(#37343b 0.8px, transparent 0.8px);
+  background-size: 16px 16px;
+  font-family: 'Nunito', sans-serif;
+}
 
-    h1 {
-      font-family: 'DotGothic16', sans-serif;
-      font-size: clamp(27px, 7vw, 43px);
-      margin: 18px 0 8px;
-    }
+a { color: inherit; }
 
-    .intro { font-size: 13px; }
+.site {
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+  background: var(--black);
+  border: 1px solid #55535d;
+  box-shadow: 0 0 35px #0008;
+}
 
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 9px;
-      padding: 15px;
-      border-bottom: 2px dashed #cdb9bd;
-    }
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 17px;
+  border-bottom: 1px solid var(--line);
+  background: #18181d;
+  font: 10px 'IBM Plex Mono', monospace;
+  color: var(--silver);
+  letter-spacing: 1px;
+}
 
-    nav a {
-      text-decoration: none;
-      color: #493d42;
-      border: 1px solid #493d42;
-      padding: 7px 13px;
-      font-size: 12px;
-      font-weight: 800;
-      background: white;
-    }
+.online {
+  color: var(--pink);
+}
 
-    nav a:hover {
-      background: #f4cbd0;
-    }
+.online::before {
+  content: "● ";
+  color: #a6d5ad;
+}
 
-    main { padding: 25px; }
+.hero {
+  padding: 38px 20px 32px;
+  text-align: center;
+  background: linear-gradient(145deg, #25232b, #17171c);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
 
-    .notice {
-      background: #f9edef;
-      border: 1px dashed #c28d9a;
-      padding: 15px;
-      font-size: 13px;
-      line-height: 1.8;
-    }
+.hero::before {
+  content: "✳";
+  position: absolute;
+  top: 15px;
+  left: 22px;
+  color: var(--pink);
+  font-size: 20px;
+  opacity: .5;
+}
 
-    h2 {
-      font-family: 'DotGothic16', sans-serif;
-      font-size: 19px;
-      margin-top: 30px;
-      border-bottom: 2px solid #493d42;
-      padding-bottom: 10px;
-    }
+.hero::after {
+  content: "✳";
+  position: absolute;
+  bottom: 15px;
+  right: 22px;
+  color: var(--pink);
+  font-size: 20px;
+  opacity: .5;
+}
 
-    .work {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 15px 5px;
-      border-bottom: 1px dashed #cdb9bd;
-      font-size: 13px;
-    }
+.kicker {
+  color: var(--pink);
+  font: 11px 'IBM Plex Mono', monospace;
+  letter-spacing: 3px;
+}
 
-    .work a {
-      color: #a65e73;
-      font-weight: 800;
-      text-decoration: none;
-    }
+.cat {
+  display: inline-block;
+  font-size: 46px;
+  margin: 15px 0 5px;
+  animation: floatcat 3s ease-in-out infinite;
+  filter: grayscale(.3);
+}
 
-    .tag {
-      background: #f4dce0;
-      padding: 4px 8px;
-      font-size: 10px;
-      white-space: nowrap;
-    }
+@keyframes floatcat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
 
-    footer {
-      padding: 20px;
-      text-align: center;
-      background: #f4cbd0;
-      border-top: 2px solid #493d42;
-      font-size: 11px;
-    }
+h1 {
+  font: clamp(27px, 7vw, 48px) 'DotGothic16', sans-serif;
+  color: var(--pink);
+  margin: 8px 0;
+  text-shadow: 3px 3px 0 #765467;
+}
 
-    @media(max-width: 450px) {
-      main { padding: 18px; }
-      .work { font-size: 11px; }
-    }
-  </style>
+.subtitle {
+  color: var(--silver);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.hero-small {
+  margin-top: 18px;
+  color: var(--muted);
+  font: 10px 'IBM Plex Mono', monospace;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 10px;
+  background: #202027;
+  border-bottom: 1px solid var(--line);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--silver);
+  border: 1px solid #55535d;
+  padding: 9px 13px;
+  font: 10px 'IBM Plex Mono', monospace;
+  transition: .2s;
+}
+
+nav a:hover {
+  color: var(--black);
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
+main {
+  padding: 23px;
+}
+
+.section {
+  margin-bottom: 30px;
+  scroll-margin-top: 15px;
+}
+
+.section-title {
+  font: 17px 'DotGothic16', sans-serif;
+  color: var(--pink);
+  border-bottom: 1px solid #55535d;
+  padding-bottom: 11px;
+  margin-bottom: 17px;
+}
+
+.section-title span {
+  color: var(--silver);
+}
+
+.welcome {
+  background: #201d25;
+  border: 1px dashed #a97891;
+  padding: 17px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--silver);
+}
+
+.welcome strong {
+  color: var(--pink);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 16px;
+  margin-bottom: 17px;
+}
+
+.panel-label {
+  font: 10px 'IBM Plex Mono', monospace;
+  color: var(--pink);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.play {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  background: var(--pink);
+  border: none;
+  color: var(--black);
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.track {
+  flex: 1;
+  min-width: 0;
+}
+
+.track strong {
+  font-size: 12px;
+}
+
+.track p {
+  font: 10px 'IBM Plex Mono', monospace;
+  color: var(--muted);
+  margin: 4px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.player-status {
+  color: var(--pink);
+  font: 9px 'IBM Plex Mono', monospace;
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.counter {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 14px;
+  text-align: center;
+}
+
+.counter small {
+  color: var(--muted);
+  font: 9px 'IBM Plex Mono', monospace;
+}
+
+.counter strong {
+  display: block;
+  color: var(--pink);
+  font: 20px 'DotGothic16', sans-serif;
+  margin-top: 7px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 12px 0;
+}
+
+.filter {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--silver);
+  padding: 7px 10px;
+  font: 10px 'IBM Plex Mono', monospace;
+  cursor: pointer;
+}
+
+.filter.active,
+.filter:hover {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: var(--black);
+}
+
+.search {
+  width: 100%;
+  background: #111114;
+  border: 1px solid var(--line);
+  padding: 12px;
+  color: white;
+  font: 11px 'IBM Plex Mono', monospace;
+  outline: none;
+}
+
+.search:focus {
+  border-color: var(--pink);
+}
+
+.work {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 5px;
+  border-bottom: 1px dashed #48434b;
+}
+
+.work a {
+  color: var(--pink);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.work a:hover {
+  color: white;
+}
+
+.work-info {
+  font: 9px 'IBM Plex Mono', monospace;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.tag {
+  color: var(--black);
+  background: var(--pink);
+  padding: 5px 8px;
+  font: 9px 'IBM Plex Mono', monospace;
+  white-space: nowrap;
+}
+
+.empty {
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+  padding: 20px;
+}
+
+.about-text {
+  color: var(--silver);
+  font-size: 13px;
+  line-height: 2;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.socials a {
+  text-decoration: none;
+  border: 1px solid var(--line);
+  padding: 10px 13px;
+  font: 10px 'IBM Plex Mono', monospace;
+  color: var(--pink);
+}
+
+.socials a:hover {
+  background: var(--pink);
+  color: var(--black);
+}
+
+.badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.badge-item {
+  border: 1px solid #55535d;
+  padding: 6px 10px;
+  color: var(--silver);
+  font: 9px 'IBM Plex Mono', monospace;
+}
+
+footer {
+  padding: 22px 15px;
+  text-align: center;
+  background: #19191e;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font: 10px 'IBM Plex Mono', monospace;
+  line-height: 2;
+}
+
+footer span {
+  color: var(--pink);
+}
+
+@media(max-width: 480px) {
+  body { padding: 12px 7px; }
+  main { padding: 15px; }
+  .hero { padding: 32px 12px; }
+  nav { gap: 6px; }
+  nav a { padding: 8px 9px; font-size: 9px; }
+  .work a { font-size: 11px; }
+}
+</style>
 </head>
+
 <body>
 
 <div class="site">
 
-  <header>
-    <div class="pixel">✳ WELCOME TO MY LITTLE WORLD ✳</div>
+  <div class="topbar">
+    <span>✳ KURONEKO.EXE</span>
+    <span class="online">SYSTEM ONLINE</span>
+    <span>VOL. 001</span>
+  </div>
+
+  <header class="hero" id="home">
+    <div class="kicker">WELCOME TO MY LITTLE WORLD</div>
+    <div class="cat">🐈‍⬛</div>
     <h1>kuroneko archive</h1>
-    <div class="intro">
+    <div class="subtitle">
       a little corner for stories, memories & imagination.
     </div>
-    <p> ฅ^•ﻌ•^ฅ </p>
+    <div class="hero-small">
+      ── EST. 2026 · MADE WITH ♡ ──
+    </div>
   </header>
 
   <nav>
@@ -147,62 +446,225 @@
   </nav>
 
   <main>
-    <section id="home">
-      <div class="notice">
-        <b>✉ HELLO, INTERNET STRANGER!</b><br>
+
+    <section class="section">
+      <div class="welcome">
+        <strong>✉ HELLO, INTERNET STRANGER!</strong><br>
         Welcome to my personal archive.
-        Take your time and explore my little collection
-        of fictional worlds.
+        A tiny space for fictional worlds, random thoughts,
+        and stories that deserve to be remembered.
+        <br><br>
+        Take your time. Stay a little.
+        You're always welcome here.
       </div>
     </section>
 
-    <section id="masterlist">
-      <h2>♡ MASTERLIST</h2>
-
-      <div class="work">
-        <a href="#">01. your story title ↗</a>
-        <span class="tag">LONG AU</span>
+    <section class="section">
+      <div class="panel">
+        <div class="panel-label">♪ NOW PLAYING</div>
+        <div class="player">
+          <button class="play" id="playBtn" aria-label="Play music">▶</button>
+          <div class="track">
+            <strong>midnight memories</strong>
+            <p>your little corner soundtrack</p>
+          </div>
+          <span class="player-status" id="playerStatus">READY</span>
+        </div>
+        <audio id="music" src="music.mp3" preload="none"></audio>
       </div>
 
-      <div class="work">
-        <a href="#">02. another universe ↗</a>
-        <span class="tag">ONESHOT</span>
-      </div>
-
-      <div class="work">
-        <a href="#">03. somewhere in june ↗</a>
-        <span class="tag">THREAD</span>
-      </div>
-
-      <div class="work">
-        <a href="#">04. almost, maybe ↗</a>
-        <span class="tag">SERIES</span>
+      <div class="counter-grid">
+        <div class="counter">
+          <small>YOUR VISITS</small>
+          <strong id="visitCount">001</strong>
+        </div>
+        <div class="counter">
+          <small>STATUS</small>
+          <strong style="font-size:15px">ONLINE ♡</strong>
+        </div>
       </div>
     </section>
 
-    <section id="about">
-      <h2>♡ ABOUT ME</h2>
-      <p class="intro">
-        Just another person collecting stories
-        and leaving little pieces of imagination
-        on the internet.
-      </p>
+    <section class="section" id="masterlist">
+      <h2 class="section-title">♡ MASTERLIST <span>/ 作品一覧</span></h2>
+
+      <input class="search" id="searchInput"
+        type="search" placeholder="⌕ search for a story...">
+
+      <div class="filters">
+        <button class="filter active" data-filter="all">ALL</button>
+        <button class="filter" data-filter="long au">LONG AU</button>
+        <button class="filter" data-filter="oneshot">ONESHOT</button>
+        <button class="filter" data-filter="thread">THREAD</button>
+        <button class="filter" data-filter="series">SERIES</button>
+      </div>
+
+      <div id="workList">
+
+        <div class="work" data-category="long au">
+          <div>
+            <a href="#" target="_blank">01. your story title ↗</a>
+            <div class="work-info">PAIRING · GENRE · YEAR</div>
+          </div>
+          <span class="tag">LONG AU</span>
+        </div>
+
+        <div class="work" data-category="oneshot">
+          <div>
+            <a href="#" target="_blank">02. another universe ↗</a>
+            <div class="work-info">PAIRING · GENRE · YEAR</div>
+          </div>
+          <span class="tag">ONESHOT</span>
+        </div>
+
+        <div class="work" data-category="thread">
+          <div>
+            <a href="#" target="_blank">03. somewhere in june ↗</a>
+            <div class="work-info">PAIRING · GENRE · YEAR</div>
+          </div>
+          <span class="tag">THREAD</span>
+        </div>
+
+        <div class="work" data-category="series">
+          <div>
+            <a href="#" target="_blank">04. almost, maybe ↗</a>
+            <div class="work-info">PAIRING · GENRE · YEAR</div>
+          </div>
+          <span class="tag">SERIES</span>
+        </div>
+
+      </div>
+      <div class="empty" id="emptyMessage" hidden>
+        no stories found... try another keyword ♡
+      </div>
     </section>
 
-    <section id="links">
-      <h2>♡ FIND ME ELSEWHERE</h2>
-      <p class="intro">
-        Twitter / Instagram / CuriousCat
-      </p>
+    <section class="section" id="about">
+      <h2 class="section-title">♡ ABOUT ME <span>/ 自己紹介</span></h2>
+      <div class="panel about-text">
+        Hello! I'm the person behind this little archive.
+        <br>
+        This website is a collection of stories, characters,
+        and imaginary universes.
+        <br><br>
+        Thank you for visiting my little corner of the internet.
+        Please be kind and enjoy your stay.
+        <br><br>
+        <span style="color:var(--pink)">よろしくお願いします ♡</span>
+      </div>
     </section>
+
+    <section class="section" id="links">
+      <h2 class="section-title">♡ ELSEWHERE <span>/ LINKS</span></h2>
+      <div class="socials">
+        <a href="#" target="_blank">TWITTER ↗</a>
+        <a href="#" target="_blank">INSTAGRAM ↗</a>
+        <a href="#" target="_blank">ASKBOX ↗</a>
+      </div>
+    </section>
+
+    <div class="badges">
+      <span class="badge-item">BEST VIEWED WITH ♡</span>
+      <span class="badge-item">MADE BY KYO</span>
+      <span class="badge-item">100% HUMAN STORIES</span>
+    </div>
+
   </main>
 
   <footer>
-    © 2026 KURONEKO ARCHIVE — made with ♡
-    <br>thanks for visiting!
+    <span>✳ KURONEKO ARCHIVE ✳</span>
+    <br>
+    © 2026 · all stories belong to their respective creator.
+    <br>
+    thank you for stopping by!
+    <br>
+    <span>ฅ^•ﻌ•^ฅ</span>
   </footer>
 
 </div>
+
+<script>
+const music = document.getElementById("music");
+const playBtn = document.getElementById("playBtn");
+const playerStatus = document.getElementById("playerStatus");
+
+playBtn.addEventListener("click", async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+      playBtn.textContent = "Ⅱ";
+      playerStatus.textContent = "PLAYING";
+    } catch (error) {
+      playerStatus.textContent = "ADD MUSIC FILE";
+    }
+  } else {
+    music.pause();
+    playBtn.textContent = "▶";
+    playerStatus.textContent = "PAUSED";
+  }
+});
+
+music.addEventListener("ended", () => {
+  playBtn.textContent = "▶";
+  playerStatus.textContent = "FINISHED";
+});
+
+music.addEventListener("error", () => {
+  playerStatus.textContent = "ADD MUSIC FILE";
+});
+
+const visitElement = document.getElementById("visitCount");
+
+try {
+  let visits = Number(localStorage.getItem("kuronekoVisits") || 0);
+  visits++;
+  localStorage.setItem("kuronekoVisits", visits);
+  visitElement.textContent = String(visits).padStart(3, "0");
+} catch (error) {
+  visitElement.textContent = "♡";
+}
+
+const filters = document.querySelectorAll(".filter");
+const searchInput = document.getElementById("searchInput");
+const works = document.querySelectorAll(".work");
+const emptyMessage = document.getElementById("emptyMessage");
+
+let currentFilter = "all";
+
+function filterWorks() {
+  const keyword = searchInput.value.toLowerCase();
+  let visible = 0;
+
+  works.forEach(work => {
+    const category = work.dataset.category;
+    const content = work.textContent.toLowerCase();
+
+    const categoryMatch =
+      currentFilter === "all" || category === currentFilter;
+
+    const searchMatch = content.includes(keyword);
+    const show = categoryMatch && searchMatch;
+
+    work.style.display = show ? "flex" : "none";
+
+    if (show) visible++;
+  });
+
+  emptyMessage.hidden = visible !== 0;
+}
+
+filters.forEach(button => {
+  button.addEventListener("click", () => {
+    filters.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+
+    currentFilter = button.dataset.filter;
+    filterWorks();
+  });
+});
+
+searchInput.addEventListener("input", filterWorks);
+</script>
 
 </body>
 </html>
